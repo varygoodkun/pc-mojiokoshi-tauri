@@ -1,9 +1,20 @@
-import type { AppProps } from "next/app";
+import Head from 'next/head';
+import '~/styles/globals.css';
 
-import "../style.css";
-import "../App.css";
+function MyApp({ Component, pageProps }) {
+  const title = '文字起こしばりぐっどくん';
 
-// This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={title} />
+        <link rel="icon" href="/icon.ico" />
+      </Head>
+
+      <Component {...pageProps} />
+    </>
+  );
 }
+
+export default MyApp;
