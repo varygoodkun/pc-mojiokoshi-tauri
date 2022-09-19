@@ -12,7 +12,20 @@
   },
   "tauri": {
     "allowlist": {
-      "all": true
+      "http": {
+        "request": true,
+        "scope": [
+          "https://asia-northeast1-varygoodkun-line-bot.cloudfunctions.net/apiPcMojiokoshi"
+        ]
+      },
+      "dialog": {
+        "open": true,
+        "message": true
+      },
+      "fs": {
+        "readFile": true,
+        "scope": ["**"]
+      }
     },
     "bundle": {
       "active": true,

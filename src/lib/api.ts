@@ -1,15 +1,26 @@
-import 'dotenv/config';
+import { Body, fetch, Response } from '@tauri-apps/api/http';
 
-const API_MOJIOKOSHI_URL = process.env.API_MOJIOKOSHI_URL;
+type ApiResData = { text: string };
 
-export const apiMojiokoshi = async (file: File): Promise<string | null> => {
-  const formData = new FormData();
-  formData.append('image', file);
+const API_MOJIOKOSHI_URL =
+  'https://asia-northeast1-varygoodkun-line-bot.cloudfunctions.net/apiPcMojiokoshi';
 
-  const res = await fetch(API_MOJIOKOSHI_URL, {
-    method: 'POST',
-    body: formData,
+export const apiMojiokoshi = async (
+  docType: string,
+  ab: ArrayBuffer
+): Promise<string | null> => {
+  const bufJson = Buffer.from(ab).toJSON();
+
+  const body = Body.json({
+    type: docType,
+    file: bufJson,
   });
 
-  return await res.json();
+  const res: Response<ApiResData> = await fetch(API_MOJIOKOSHI_URL, {
+    method: 'POST',
+    body: body,
+  });
+
+  const data = res.data;
+  return data.text;
 };

@@ -1,11 +1,15 @@
 import Image from 'next/image';
 import { Dispatch, SetStateAction, useCallback, useState } from 'react';
+
 import { Accept, FileWithPath, useDropzone } from 'react-dropzone';
+import { open } from '@tauri-apps/api/dialog';
+import { readBinaryFile } from '@tauri-apps/api/fs';
+
 import { Button } from '~/components/Button';
 import { SelectTextType } from '~/components/SelectTextType';
+
 import { mojiokoshiType } from '~/lib/types';
-import { open } from '@tauri-apps/api/dialog';
-import { invoke } from '@tauri-apps/api/tauri';
+import { apiMojiokoshi } from '~/lib/api';
 
 type Props = {
   setText: Dispatch<SetStateAction<string>>;
@@ -19,6 +23,7 @@ const mojiokoshiTypes: mojiokoshiType[] = [
 export const HomeFormImage: React.FC<Props> = (props) => {
   const { setText } = props;
   const [path, setPath] = useState('');
+  const [arrayBuffer, setArrayBuffer] = useState<ArrayBuffer>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [mojiokoshiType, setMojiokoshiType] = useState(mojiokoshiTypes[0]);
 
@@ -29,40 +34,38 @@ export const HomeFormImage: React.FC<Props> = (props) => {
   const fileName = path.split('/').reverse()[0];
 
   const onDrop = useCallback((acceptedFiles: FileWithPath[]) => {
-    const filePath = acceptedFiles[0].path;
+    const file = acceptedFiles[0];
+    const filePath = file.path;
     setPath(filePath);
+    file.arrayBuffer().then((buf) => setArrayBuffer(buf));
   }, []);
 
   const openDialog = async () => {
     const filePath = await open();
-    if (typeof filePath === 'string') setPath(filePath);
+    if (typeof filePath === 'string') {
+      readBinaryFile(filePath).then((buf) => setArrayBuffer(buf));
+      setPath(filePath);
+    }
   };
 
   const { acceptedFiles, getRootProps, getInputProps, isDragActive } =
     useDropzone({ accept, onDrop, noClick: true });
 
-  const submitImage = async (
-    path: string,
-    docType: string
-  ): Promise<string> => {
-    const text: string = await invoke('submit_image', {
-      docType,
-      path,
-    });
-    return text;
-  };
-
   const handleSubmit = async () => {
-    if (!path) return;
+    if (!path || !arrayBuffer) return;
     setIsLoading(true);
 
-    const text = await submitImage(path, mojiokoshiType.docType);
-    console.log(text);
-    if (typeof text === 'string') setText(text);
-    else {
-      acceptedFiles.length = 0;
-      alert('送信に失敗しました。もう一度やり直してください');
-    }
+    apiMojiokoshi(mojiokoshiType.docType, arrayBuffer)
+      .then((text) => {
+        if (text) setText(text);
+        else {
+          alert('テキストがありません。');
+        }
+      })
+      .catch(() => {
+        acceptedFiles.length = 0;
+        alert('送信に失敗しました。もう一度やり直してください');
+      });
 
     setPath('');
     setIsLoading(false);
