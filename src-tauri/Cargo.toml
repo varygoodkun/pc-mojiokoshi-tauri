@@ -14,7 +14,7 @@ rust-version = "1.57"
 tauri-build = { version = "1.1", features = [] }
 
 [dependencies]
-tauri = { version = "1.1", features = ["dialog-message", "dialog-open", "fs-read-file", "http-request"] }
+tauri = { version = "1.1", features = ["dialog-message", "dialog-open", "fs-read-file", "http-request", "shell-open"] }
 
 [features]
 # by default Tauri runs in production mode

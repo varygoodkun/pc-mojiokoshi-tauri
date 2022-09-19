@@ -25,6 +25,9 @@
       "fs": {
         "readFile": true,
         "scope": ["**"]
+      },
+      "shell": {
+        "open": true
       }
     },
     "bundle": {
