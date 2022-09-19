@@ -2,5 +2,8 @@ app
 node_modules
 dist
 .next
+target
 
 package.json
+
+pnpm-lock.yaml
