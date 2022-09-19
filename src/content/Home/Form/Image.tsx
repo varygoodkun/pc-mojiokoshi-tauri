@@ -4,7 +4,7 @@ import { Accept, FileWithPath, useDropzone } from 'react-dropzone';
 import { Button } from '~/components/Button';
 import { SelectTextType } from '~/components/SelectTextType';
 import { mojiokoshiType } from '~/lib/types';
-import upload from '~/assets/upload.png';
+import { open } from '@tauri-apps/api/dialog';
 
 type Props = {
   setText: Dispatch<SetStateAction<string>>;
@@ -33,8 +33,8 @@ export const HomeFormImage: React.FC<Props> = (props) => {
   }, []);
 
   const openDialog = async () => {
-    // const filePath = await window.electronAPI.openDialog();
-    // if (typeof filePath === 'string') setPath(filePath);
+    const filePath = await open();
+    if (typeof filePath === 'string') setPath(filePath);
   };
 
   const { acceptedFiles, getRootProps, getInputProps, isDragActive } =
