@@ -5,6 +5,7 @@ import { Button } from '~/components/Button';
 import { SelectTextType } from '~/components/SelectTextType';
 import { mojiokoshiType } from '~/lib/types';
 import { open } from '@tauri-apps/api/dialog';
+import { invoke } from '@tauri-apps/api/tauri';
 
 type Props = {
   setText: Dispatch<SetStateAction<string>>;
@@ -40,18 +41,29 @@ export const HomeFormImage: React.FC<Props> = (props) => {
   const { acceptedFiles, getRootProps, getInputProps, isDragActive } =
     useDropzone({ accept, onDrop, noClick: true });
 
+  const submitImage = async (
+    path: string,
+    docType: string
+  ): Promise<string> => {
+    const text: string = await invoke('submit_image', {
+      docType,
+      path,
+    });
+    return text;
+  };
+
   const handleSubmit = async () => {
     if (!path) return;
-    // setIsLoading(true);
-    // const text = await window.electronAPI.submitImage(
-    //   mojiokoshiType.docType,
-    //   path
-    // );
-    // if (typeof text === 'string') setText(text);
-    // else {
-    //   acceptedFiles.length = 0;
-    //   alert('送信に失敗しました。もう一度やり直してください');
-    // }
+    setIsLoading(true);
+
+    const text = await submitImage(path, mojiokoshiType.docType);
+    console.log(text);
+    if (typeof text === 'string') setText(text);
+    else {
+      acceptedFiles.length = 0;
+      alert('送信に失敗しました。もう一度やり直してください');
+    }
+
     setPath('');
     setIsLoading(false);
   };
