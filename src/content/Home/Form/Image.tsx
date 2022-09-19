@@ -4,6 +4,7 @@ import { Accept, FileWithPath, useDropzone } from 'react-dropzone';
 import { Button } from '~/components/Button';
 import { SelectTextType } from '~/components/SelectTextType';
 import { mojiokoshiType } from '~/lib/types';
+import upload from '~/assets/upload.png';
 
 type Props = {
   setText: Dispatch<SetStateAction<string>>;
@@ -32,8 +33,8 @@ export const HomeFormImage: React.FC<Props> = (props) => {
   }, []);
 
   const openDialog = async () => {
-    const filePath = await window.electronAPI.openDialog();
-    if (typeof filePath === 'string') setPath(filePath);
+    // const filePath = await window.electronAPI.openDialog();
+    // if (typeof filePath === 'string') setPath(filePath);
   };
 
   const { acceptedFiles, getRootProps, getInputProps, isDragActive } =
@@ -41,16 +42,16 @@ export const HomeFormImage: React.FC<Props> = (props) => {
 
   const handleSubmit = async () => {
     if (!path) return;
-    setIsLoading(true);
-    const text = await window.electronAPI.submitImage(
-      mojiokoshiType.docType,
-      path
-    );
-    if (typeof text === 'string') setText(text);
-    else {
-      acceptedFiles.length = 0;
-      alert('送信に失敗しました。もう一度やり直してください');
-    }
+    // setIsLoading(true);
+    // const text = await window.electronAPI.submitImage(
+    //   mojiokoshiType.docType,
+    //   path
+    // );
+    // if (typeof text === 'string') setText(text);
+    // else {
+    //   acceptedFiles.length = 0;
+    //   alert('送信に失敗しました。もう一度やり直してください');
+    // }
     setPath('');
     setIsLoading(false);
   };
@@ -73,7 +74,7 @@ export const HomeFormImage: React.FC<Props> = (props) => {
                     width={200}
                     height={200}
                     alt="upload"
-                  ></Image>
+                  />
                 </div>
                 <p className="text-center ss:-mt-12">画像ファイルを追加</p>
               </div>
