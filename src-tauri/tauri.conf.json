@@ -1,13 +1,13 @@
 {
   "build": {
-    "beforeDevCommand": "pnpm dev",
-    "beforeBuildCommand": "pnpm build",
+    "beforeDevCommand": "yarn dev",
+    "beforeBuildCommand": "yarn build",
     "devPath": "http://localhost:1420",
     "distDir": "../dist",
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "文字起こしばりぐっど君【PC版】",
+    "productName": "pc-mojiokoshi",
     "version": "1.0.0"
   },
   "tauri": {
@@ -38,7 +38,7 @@
         "depends": []
       },
       "externalBin": [],
-      "icon": ["icons/icon.icns", "icons/icon.ico"],
+      "icon": ["icons/icon.icns", "icons/icon.ico", "icons/icon.png"],
       "identifier": "community.vgu.pc-mojiokoshi",
       "longDescription": "",
       "macOS": {
@@ -52,6 +52,9 @@
       "shortDescription": "",
       "targets": "all",
       "windows": {
+        "wix": {
+          "language": "jp-JP"
+        },
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
         "timestampUrl": ""
