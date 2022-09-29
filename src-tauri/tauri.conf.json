@@ -67,7 +67,7 @@
       "active": true,
       "endpoints": ["https://storage.googleapis.com/pcvg-updater/update.json"],
       "dialog": true,
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEYxQjU2ODFDNjYxMDc0RDIKUldUU2RCQm1IR2kxOGJ6dExhdmQ5WGZGa0FGVDdxQXVnMncvd1BhbUduVWwyTHlpYUd0ekQ0aFUK"
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEFENTczMzQ4ODMyNUY4MTgKUldRWStDV0RTRE5YcmU1aHdPYzFXQ1B4S2tJdUl0OHpJWUJRcWlGZEVuMUR5LzZITlRVWVdpWXcK"
     },
     "windows": [
       {
