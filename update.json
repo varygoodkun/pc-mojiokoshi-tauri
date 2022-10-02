@@ -1,0 +1,27 @@
+{
+  "version": "v1.0.0",
+  "notes": "new release",
+  "pub_date": "2020-10-02T00:00:00Z",
+  "platforms": {
+    "darwin-aarch64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRWStDV0RTRE5Yclc3NUVpYkJyWkJHRWhFNU85eExTci9CT0l1YXJXRDllSzVGU1E1cVIvRmFQYWkyZWI4NlZ5UlNuUXFjNWlJWHo1bkNILzFPeEVEMTY2TjFJcnZCd3djPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjY0NDM2NjU0CWZpbGU6cGMtbW9qaW9rb3NoaS5hcHAudGFyLmd6CmR3YVBPN2RVN2FFUUVGdEpRVE4wcElOZG84R0dEbVM4MWVmbC9xTHRGUXlSVmVVd0tqMjhaTExyR2ExNnd0OTAzNHA3enVoMC9MNlJ5UzFtdTFIYkRRPT0K",
+      "url": "https://github.com/Tetsu4819/pc-mojiokoshi-tauri/releases/download/app-v1.0.0/pc-mojiokoshi.app.tar.gz"
+    },
+    "darwin-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRWStDV0RTRE5Yclc3NUVpYkJyWkJHRWhFNU85eExTci9CT0l1YXJXRDllSzVGU1E1cVIvRmFQYWkyZWI4NlZ5UlNuUXFjNWlJWHo1bkNILzFPeEVEMTY2TjFJcnZCd3djPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjY0NDM2NjU0CWZpbGU6cGMtbW9qaW9rb3NoaS5hcHAudGFyLmd6CmR3YVBPN2RVN2FFUUVGdEpRVE4wcElOZG84R0dEbVM4MWVmbC9xTHRGUXlSVmVVd0tqMjhaTExyR2ExNnd0OTAzNHA3enVoMC9MNlJ5UzFtdTFIYkRRPT0K",
+      "url": "https://github.com/Tetsu4819/pc-mojiokoshi-tauri/releases/download/app-v1.0.0/pc-mojiokoshi.app.tar.gz"
+    },
+    "linux-aarch64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRWStDV0RTRE5YclZwUFBsVjlEU080RHBOVUZqZ0lkNVFlVTJEUHAxOTdtek8xdEptc0dqQk5VOGU3RjJJdVBNMWNDdGVHY0RXNExJV0FZeU5zTlRiZU9sa3dmTmRIK3dJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjY0NDM2MzgzCWZpbGU6cGMtbW9qaW9rb3NoaV8xLjAuMF9hbWQ2NC5BcHBJbWFnZS50YXIuZ3oKQi9LUUMzRi9yRnlOdXlRUlE3b2hnY1JwNWJTVDNWZERuUkdGTnY1VldqdDJiUjRuUDN5enI3b01WdnUrRUtoME5pQjNIMDRoOElML1dmVGhXTzYrQWc9PQo=",
+      "url": "https://github.com/Tetsu4819/pc-mojiokoshi-tauri/releases/download/app-v1.0.0/pc-mojiokoshi.app.tar.gz"
+    },
+    "linux-x86_64": {
+      "signature": "",
+      "url": "https://github.com/Tetsu4819/pc-mojiokoshi-tauri/releases/download/app-v1.0.0/pc-mojiokoshi.app.tar.gz"
+    },
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRWStDV0RTRE5Yclk3dW9YMnRwOFVVc3JycjN6bTM3WEplSU5hWTBPaXhTN2ZVRkRJeDBzOUN0Z3dLZ0s3Z3AzbmR0ckVpRUxiU3F0UXQrYXF3dW5qYzVhTUdVdXowbUFNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNjY0NDM2Mzg1CWZpbGU6cGMtbW9qaW9rb3NoaV8xLjAuMF94NjRfanAtSlAubXNpLnppcAp4cXJFSHI0WjdkKzRIYVJkNmdVRFVYOWJJUXZRaFZxOEZYWHdJUnVjeVBqL2R2Vk9FYmJRS0U5TWI1MDFNY2UxeVAvSUYvbnhPVktsOXM3bTh2VDZDZz09Cg==",
+      "url": "https://github.com/Tetsu4819/pc-mojiokoshi-tauri/releases/download/app-v1.0.0/pc-mojiokoshi.app.tar.gz"
+    }
+  }
+}
