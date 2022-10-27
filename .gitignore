@@ -26,3 +26,4 @@ dist-ssr
 
 .envrc
 secrets/
+private_keys/
